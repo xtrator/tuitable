@@ -1,0 +1,17 @@
+<div>
+  <p>
+    <span> <%= tweet.user.name %></span>
+    <span> @<%= tweet.user.username %></span>
+    <span> <%= time_ago_in_words(tweet.created_at) %> ago</span>
+  </p>
+  <p>
+    <%= tweet.body %>
+  </p>
+  <div>
+    <p><%= link_to  "comments", root_path %> <%= tweet.replies_count %></p>
+    <p><%= link_to  "like", root_path %></p>
+    <p><%= link_to  "edit", root_path %></p>
+    <p><%= link_to  "delete", root_path %></p>
+  </div>
+  <hr>
+</div> 
