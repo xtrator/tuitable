@@ -1,0 +1,26 @@
+html {
+  background: var(--background);
+}
+body {
+  margin: 16px auto 0px auto;
+  max-width: 880px;  
+  display: flex;
+}
+.nav {
+  background: white;
+  height: 100%;
+  border: 1px solid var(--background);
+  width: 180px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 8px;
+}
+.header {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  background: white;
+  border: 1px solid var(--background);
+}
