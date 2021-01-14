@@ -1,0 +1,34 @@
+.h--xlarge,
+.h--large,
+.h--regular,
+.h--small,
+.h--xsmall {
+font-style: normal;
+font-weight: 400;
+letter-spacing: 0em;
+text-align: left;
+color: black;
+}
+.h--xlarge {
+  font-size: 30px;
+  line-height: 40px;
+}
+.h--large {
+  font-size: 20px;
+  line-height: 32px;
+}
+.h--regular {
+  font-size: 16px;
+  line-height: 24px;
+}
+.h--small {
+  font-size: 14px;
+  line-height: 24px;
+}
+.h--xsmall {
+  font-size: 12px;
+  line-height: 16px;
+}
+.h--bold {
+  font-weight: bold;
+}

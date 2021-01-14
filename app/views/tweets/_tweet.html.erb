@@ -1,0 +1,20 @@
+<div class="tweet">
+  <p class="tweet__info">
+    <span class="h--regular h--bold"> <%= tweet.user.name %></span>
+    <span> @<%= tweet.user.username %></span>
+    <span> <%= time_ago_in_words(tweet.created_at) %> ago</span>
+  </p>
+  <p class="tweet__body h--regular">
+    <%= tweet.body %>
+  </p>
+  <div class="tweet__links">
+    <div>
+      <%= link_to  image_tag("comment"), tweet_path(tweet) %> <%= tweet.replies_count %>
+      <%= link_to  image_tag("like"), root_path %> <%= tweet.likes_count %>
+    </div>
+    <div>
+      <%= link_to  image_tag("edit"), root_path %>
+      <%= link_to  image_tag("delete"), root_path %>
+    </div>
+  </div>
+</div> 
