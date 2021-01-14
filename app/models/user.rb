@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   has_many :liked_tweets, through: :likes, source: :tweet
+
+  validates :username, :name, :password, presence: true
+  validates :username, uniqueness: true
+
+  enum role: { member: 0, admin: 1 }
 end
