@@ -6,6 +6,9 @@ body {
   max-width: 880px;  
   display: flex;
 }
+main {
+  width: 100%;
+}
 .nav {
   background: white;
   height: 100%;
