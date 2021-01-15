@@ -11,6 +11,10 @@
   max-height: 50px;
   border-radius: 50%;
 }
+.tweet__avatar:hover {
+  transition: 0.5s;
+  scale: 1.1;
+}
 .tweet__wrapper {
   width: 100%;
 }
@@ -18,6 +22,15 @@
   color: var(--secundary-text);
   display: flex;
   gap: 8px;
+  align-items: center;
+}
+.tweet__info a {
+  text-decoration: none;
+  color: var(--secundary-text)
+}
+.tweet__info a:hover {
+  text-decoration: none;
+  color: var(--primary)
 }
 .tweet__links {
   display: flex;
