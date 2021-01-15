@@ -1,0 +1,13 @@
+<%= form_with model: @tweet, local: true do |form| %>
+    
+  <div>
+    <div class = "field">
+        <%= form.label :body %>
+        <%= form.text_area :body %>
+    </div>      
+      <%= link_to 'Back', root_path %>
+    <div>
+     <%= form.submit %>
+    </div>
+    </div>
+<% end %>

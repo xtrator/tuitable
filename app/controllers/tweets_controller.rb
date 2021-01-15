@@ -12,14 +12,17 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
   
   end
-  
+  def new 
+    @tweet = Tweet.new
+  end
+
   def create
     @tweet = Tweet.new(tweet_params)
-
+    @tweet.user = current_user
     if @tweet.save
-      redirect_to @tweet
+      redirect_to root_path @tweet
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -27,7 +30,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     
     if @tweet.update(tweet_params)
-      redirect_to @tweet
+      redirect_to root_path @tweet
     else
       render 'edit'
     end
@@ -35,15 +38,13 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet = Tweet.find(params[:id])
-    
     @tweet.destroy
-
-    redirect_to @tweet
+    redirect_to root_path @tweet
   end
 
   private
     def tweet_params
-      params.require(:tweet).permit(:body)
+      params.require(:tweet).permit(:body, :user_id,:replied_to_id, :replies)
     end
 
    
