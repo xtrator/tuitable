@@ -9,6 +9,13 @@ body {
 main {
   width: 100%;
 }
+.header {
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  background: white;
+  border: 1px solid var(--background);
+}
 .nav {
   background: white;
   height: 100%;
@@ -20,10 +27,12 @@ main {
   justify-content: flex-start;
   gap: 8px;
 }
-.header {
-  width: 100%;
-  padding: 16px;
-  text-align: center;
-  background: white;
-  border: 1px solid var(--background);
+.nav__link {
+  text-decoration: none;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.nav__link:hover {
+  color: var(--primary);
 }
