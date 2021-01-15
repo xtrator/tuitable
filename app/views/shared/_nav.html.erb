@@ -1,6 +1,13 @@
 <div class="nav">
   <p><%= image_tag  "tweetable" %></p>
+<<<<<<< HEAD
   <p><%= link_to  "Home", tweets_path %></p>
   <p><%= link_to  "Profile", root_path %></p>
   <p><%= link_to  "Login", root_path %></p>
+=======
+  <p><%= link_to  image_tag('home') + "Home", root_path, class: "h--large h--bold nav__link" %></p>
+  <p><%= link_to  image_tag('profile') + "Profile", root_path, class: "h--large h--bold nav__link" %></p>
+  <p><%= button_to  "Login", root_path, class: 'button button--ghost button--small', method: :get %></p>
+  <p><%= button_to  "Logout", root_path, class: 'button button--ghost button--small', method: :get %></p>
+>>>>>>> main
 </div>
