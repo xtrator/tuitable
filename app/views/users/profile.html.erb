@@ -1,0 +1,16 @@
+<h1 class="header h--large h--bold">Profile</h1>
+  <div class="profile">
+    <p class="h--large h--bold"> <%= @user.name %></p>
+    <p class="h--regular h--gray"> @<%= @user.username %></p>
+    <p class="h--regular h--gray"> Joined on <%= @user.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+  <div class="profile_links">
+    <% if @in_profile %>
+      <%= link_to "Tweets", profile_path, class: "profile_link h--large h--bold h--primary"%>
+      <%= link_to "Likes", profile_likes_path, class: "profile_link h--large h--bold"%>
+    <% else %>
+      <%= link_to "Tweets", profile_path, class: "profile_link h--large h--bold"%>
+      <%= link_to "Likes", profile_likes_path, class: "profile_link h--large h--bold h--primary"%>
+    <% end %>
+  </div>
+<p> <%= render @tweets %></p>

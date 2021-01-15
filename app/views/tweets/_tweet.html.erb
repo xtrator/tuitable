@@ -1,7 +1,7 @@
 <div class="tweet">
   <p class="tweet__info">
     <span class="h--regular h--bold"> <%= tweet.user.name %></span>
-    <span> @<%= tweet.user.username %></span>
+    <%= link_to "@#{tweet.user.username}", profile_path(tweet.user), style: 'text-decoration: none; color: var(--text-secundary)'%>
     <span> <%= time_ago_in_words(tweet.created_at) %> ago</span>
   </p>
   <p class="tweet__body h--regular">
