@@ -8,7 +8,7 @@
 }
 .tweet__avatar {
   object-fit: cover;
-  max-width: 50px;
+  width: 50px;
   height: 50px;
   border-radius: 50%;
 }
@@ -39,5 +39,5 @@
   margin-top: 8px;
 }
 .tweet__content {
-  width: 100%;
+  max-width: 100%;
 }
