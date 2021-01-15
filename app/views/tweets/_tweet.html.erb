@@ -13,8 +13,8 @@
       <%= link_to  image_tag("like"), root_path %> <%= tweet.likes_count %>
     </div>
     <div>
-      <%= link_to  image_tag("edit"), root_path %>
-      <%= link_to  image_tag("delete"), root_path %>
+      <%= link_to  image_tag("edit"), root_path if policy(tweet).edit? %>
+      <%= link_to  image_tag("delete"), root_path if policy(tweet).destroy?  %>
     </div>
   </div>
 </div> 

@@ -1,6 +1,6 @@
 class TweetPolicy < ApplicationPolicy
   def create?
-    user
+    record.user == user
   end
 
   def destroy?
