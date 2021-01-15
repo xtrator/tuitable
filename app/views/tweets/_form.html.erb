@@ -1,13 +1,10 @@
-<%= form_with model: @tweet, local: true do |form| %>
-    
+<%= form_with model: @tweet, local: true, class: "form" do |form| %>    
+  <div class = "field">
+    <%= form.label :body %><br />
+    <%= form.text_area :body, class: "form__area", autofocus: true %>
+  </div>      
+
   <div>
-    <div class = "field">
-        <%= form.label :body %>
-        <%= form.text_area :body %>
-    </div>      
-      <%= link_to 'Back', root_path %>
-    <div>
-     <%= form.submit %>
-    </div>
-    </div>
+    <%= form.submit class: "button" %>
+  </div>
 <% end %>
