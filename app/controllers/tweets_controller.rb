@@ -8,11 +8,11 @@ class TweetsController < ApplicationController
     @tweets = @tweet.replies
   end
 
-  def edit 
+  def edit
     @tweet = Tweet.find(params[:id])
-  
   end
-  def new 
+
+  def new
     @tweet = Tweet.new
   end
 
@@ -28,7 +28,6 @@ class TweetsController < ApplicationController
 
   def update
     @tweet = Tweet.find(params[:id])
-    
     if @tweet.update(tweet_params)
       redirect_to root_path @tweet
     else
@@ -38,15 +37,19 @@ class TweetsController < ApplicationController
 
   def destroy
     @tweet = Tweet.find(params[:id])
-    @tweet.destroy
-    redirect_to root_path @tweet
+    if @tweet.replied_to
+      replied_to = @tweet.replied_to
+      @tweet.destroy
+      redirect_to replied_to
+    else
+      @tweet.destroy
+      redirect_to tweets_path
+    end
   end
 
   private
-    def tweet_params
-      params.require(:tweet).permit(:body, :user_id,:replied_to_id, :replies)
-    end
 
-   
-  
+  def tweet_params
+    params.require(:tweet).permit(:body, :user_id, :replied_to_id, :replies)
+  end
 end
