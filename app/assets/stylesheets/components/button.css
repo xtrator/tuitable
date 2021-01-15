@@ -1,0 +1,35 @@
+.button {
+  min-width: 88px;
+  padding: 8px 16px;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  background: var(--primary);
+  outline: none;
+  border: 1px solid var(--primary);
+  border-radius: 100px;
+  text-align: center;
+  cursor: pointer;
+}
+.button--large {
+  width: 145px;
+  padding: 8px 0px;
+}
+.button--small {
+  padding: 4px;
+}
+
+.button:focus,
+.button:hover,
+.button--ghost {
+  background-color: transparent;
+  color: var(--primary);
+}
+.button--browse {
+  background: white;
+  color: black;
+  border-color: black;
+}
+.button--no-border {
+  border: none;
+}
