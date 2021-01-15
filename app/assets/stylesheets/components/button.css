@@ -32,4 +32,5 @@
 }
 .button--no-border {
   border: none;
+  text-decoration: none;
 }
