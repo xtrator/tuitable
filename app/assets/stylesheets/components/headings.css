@@ -35,3 +35,6 @@ color: black;
 .h--gray{
   color: var(--secundary-text);
 }
+.h--primary{
+  color: var(--primary);
+}
