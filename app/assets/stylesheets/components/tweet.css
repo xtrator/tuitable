@@ -3,6 +3,16 @@
   background-color: white;
   border: 1px solid var(--background);
   width: 100%;
+  display: flex;
+  gap: 8px;
+}
+.tweet__avatar {
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+}
+.tweet__wrapper {
+  width: 100%;
 }
 .tweet__info {
   color: var(--secundary-text);
