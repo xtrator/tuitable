@@ -1,20 +1,33 @@
 <div class="tweet">
-  <p class="tweet__info">
-    <span class="h--regular h--bold"> <%= tweet.user.name %></span>
-    <%= link_to "@#{tweet.user.username}", profile_path(tweet.user), style: 'text-decoration: none; color: var(--text-secundary)'%>
-    <span> <%= time_ago_in_words(tweet.created_at) %> ago</span>
-  </p>
-  <p class="tweet__body h--regular">
-    <%= tweet.body %>
-  </p>
-  <div class="tweet__links">
-    <div>
-      <%= link_to  image_tag("comment"), tweet_path(tweet) %> <%= tweet.replies_count %>
-      <%= link_to  image_tag("like"), root_path %> <%= tweet.likes_count %>
-    </div>
-    <div>
-      <%= link_to  image_tag("edit"), root_path if policy(tweet).edit? %>
-      <%= link_to  image_tag("delete"), root_path if policy(tweet).destroy?  %>
+  <div>
+    <a href="<%= profile_path(tweet.user) %>">
+      <% if tweet.user.avatar.attached? %>
+        <%= image_tag tweet.user.avatar, class: "tweet__avatar" %>
+      <% else %>
+        <%= image_tag "default_avatar", class: "tweet__avatar" %>
+      <% end %>
+    </a>
+  </div>
+
+  <div class="tweet__wrapper">
+    <p class="tweet__info">
+      <span class="h--regular h--bold"> <%= tweet.user.name %></span>
+      <%= link_to  "@" + tweet.user.username, profile_path(tweet.user) %>
+      <span> <%= time_ago_in_words(tweet.created_at) %> ago</span>
+    </p>
+    <p class="tweet__body h--regular">
+      <%= tweet.body %>
+    </p>
+    <div class="tweet__links">
+      <div>
+        <%= link_to  image_tag("comment"), tweet_path(tweet) %> <%= tweet.replies_count %>
+        <%= link_to  image_tag("like"), root_path %> <%= tweet.likes_count %>
+      </div>
+      <div>
+        <%= link_to  image_tag("edit"), edit_tweet_path(tweet) if policy(tweet).edit? %>
+        <%= link_to  image_tag("delete"), tweet_path(tweet),
+                     method: :delete, data: { confirm: "are you sure?" } if policy(tweet).destroy? %>
+      </div>
     </div>
   </div>
 </div> 
