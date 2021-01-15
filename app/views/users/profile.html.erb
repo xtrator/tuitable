@@ -1,0 +1,7 @@
+<h1 class="header h--large h--bold">Profile</h1>
+  <div class="profile">
+    <p class="h--large h--bold"> <%= @user.name %></p>
+    <p class="h--regular h--gray"> @<%= @user.username %></p>
+    <p class="h--regular h--gray"> Joined on <%= @user.created_at.strftime("%B %d, %Y") %></p>
+  </div>
+<p> <%= render @tweets %></p>

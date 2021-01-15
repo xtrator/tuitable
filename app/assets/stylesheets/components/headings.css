@@ -32,3 +32,6 @@ color: black;
 .h--bold {
   font-weight: bold;
 }
+.h--gray{
+  color: var(--secundary-text);
+}

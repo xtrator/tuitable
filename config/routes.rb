@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/profile/:id', to: 'users#profile', as: 'profile'
   root 'tweets#index'
   devise_for :users
   resources :tweets
