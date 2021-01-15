@@ -25,6 +25,10 @@
   background-color: transparent;
   color: var(--primary);
 }
+.button--ghost:hover {
+  scale: 1.1;
+}
+
 .button--browse {
   background: white;
   color: black;

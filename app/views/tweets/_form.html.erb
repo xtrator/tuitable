@@ -1,0 +1,10 @@
+<%= form_with model: @tweet, local: true, class: "form" do |form| %>    
+  <div class = "field">
+    <%= form.label :body %><br />
+    <%= form.text_area :body, class: "form__area", autofocus: true %>
+  </div>      
+
+  <div>
+    <%= form.submit class: "button" %>
+  </div>
+<% end %>
