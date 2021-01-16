@@ -36,3 +36,22 @@ main {
 .nav__link:hover {
   color: var(--primary);
 }
+.notice {
+  background: var(--primary);
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+}
+.alert {
+  background: var(--error);
+  color: white;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+}
+
