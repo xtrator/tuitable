@@ -16,6 +16,8 @@
   padding: 8px 16px;
   border-radius: 8px;
   outline: none;
+  font-size: 16px;
+  line-height: 24px;
 }
 .form__area {
   width: 260px;
@@ -24,6 +26,8 @@
   border: 1px solid #767676;
   border-radius: 8px;
   padding: 8px 16px;
+  font-size: 16px;
+  line-height: 24px;
 }
 .form__area:focus {
   box-shadow: 0px 0px 6px #696D7D;
@@ -33,14 +37,6 @@
 .form__field:focus {
   box-shadow: 0px 0px 6px var(--primary);
   border: 1px solid var(--primary);
-}
-.form__area {
-  width: 260px;
-  height: 160px;
-  resize: none;
-  border: 1px solid #767676;
-  border-radius: 8px;
-  padding: 8px 16px;
 }
 .form__area:focus {
   box-shadow: 0px 0px 6px #696D7D;
@@ -71,4 +67,6 @@
   outline: none;
   border: none;
   resize: none;
+  font-size: 16px;
+  line-height: 24px;
 }

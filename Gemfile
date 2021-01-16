@@ -22,11 +22,11 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'dotenv-rails'
 gem 'faker'
-gem 'pundit'
 gem 'omniauth-github', '~>1.4.0'
 gem 'omniauth-google-oauth2', '~>0.8.1'
-gem 'dotenv-rails'
+gem 'pundit'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

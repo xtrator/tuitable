@@ -8,5 +8,7 @@
     <p><%= button_to  "Login", new_user_session_path, class: 'button button--ghost button--small', method: :get %></p>
     <%= link_to "Continue with Google", user_google_oauth2_omniauth_authorize_path, 
                 method: :get, class: "h--xsmall nav__link"%>
+    <%= link_to  "Continue with Github",  user_github_omniauth_authorize_path, method: :get,
+                  class: 'h--xsmall nav__link' %>
   <% end %>
 </div>
