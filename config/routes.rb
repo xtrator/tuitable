@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   delete '/tweets/:id/likes', to: 'likes#destroy', as: 'destroy_like'
 
   namespace :api do
-    resources :tweets, only: %i[index show create]
+    resources :tweets, only: %i[index show create update destroy]
     resources :users, only: %i[create]
     post '/login', to: 'sessions#create', as: 'login'
     delete '/logout', to: 'sessions#destroy', as: 'logout'

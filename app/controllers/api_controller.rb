@@ -4,13 +4,13 @@ class ApiController < ActionController::API
   include ActionController::HttpAuthentication::Token::ControllerMethods
   include Pundit
 
-  before_action :authorize
+  before_action :authorize_user
 
   def current_user
     @current_user ||= authenticate_token
   end
 
-  def authorize
+  def authorize_user
     authenticate_token || respond_unauthorized('Access denied')
   end
 

@@ -1,5 +1,5 @@
 class Api::TweetsController < ApiController
-  skip_before_action :authorize, only: [:index, :show]
+  skip_before_action :authorize_user, only: [:index, :show]
 
   def index
     @tweets = Tweet.all.where(replied_to: nil).order(created_at: :desc)
@@ -19,6 +19,16 @@ class Api::TweetsController < ApiController
       render json: @tweet
     else
       render json: @tweet.errors.messages
+    end
+  end
+
+  def update
+    tweet = Tweet.find(params[:id])
+    authorize tweet
+    if tweet.update(tweet_params)
+      render json: tweet
+    else
+      render json: tweet.errors , status: 400
     end
   end
 
