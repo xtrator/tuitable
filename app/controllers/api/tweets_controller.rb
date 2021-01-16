@@ -32,6 +32,13 @@ class Api::TweetsController < ApiController
     end
   end
 
+  def destroy
+    tweet = Tweet.find(params[:id])
+    authorize tweet
+    tweet.destroy
+    head :no_content
+  end
+
   private 
 
   def tweet_params
