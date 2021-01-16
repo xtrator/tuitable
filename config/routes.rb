@@ -6,5 +6,10 @@ Rails.application.routes.draw do
   resources :tweets
   post '/tweets/:id/likes', to: 'likes#create', as: 'create_like'
   delete '/tweets/:id/likes', to: 'likes#destroy', as: 'destroy_like'
+
+  namespace :api do
+    resources :tweets, only: %i[index show]
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
