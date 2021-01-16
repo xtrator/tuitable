@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @tweets = @tweet.replies.order(likes_count: :desc)
+    @is_show_page = true
   end
 
   def edit
@@ -19,7 +20,7 @@ class TweetsController < ApplicationController
     @tweet.user = current_user
     authorize @tweet
     if @tweet.save
-      redirect_to tweets_path
+      redirect_back(fallback_location: root_path)
     else
       redirect_to tweets_path, notice: @tweet.errors.full_messages.to_sentence
     end
@@ -29,7 +30,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.find(params[:id])
     authorize @tweet
     if @tweet.update(tweet_params)
-      redirect_to tweet_path(@tweet)
+      redirect_to @tweet
     else
       flash.now.alert = @tweet.errors.full_messages.to_sentence
       render 'edit'
@@ -39,14 +40,8 @@ class TweetsController < ApplicationController
   def destroy
     @tweet = Tweet.find(params[:id])
     authorize @tweet
-    if @tweet.replied_to
-      replied_to = @tweet.replied_to
-      @tweet.destroy
-      redirect_to replied_to
-    else
-      @tweet.destroy
-      redirect_to tweets_path
-    end
+    @tweet.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   private
