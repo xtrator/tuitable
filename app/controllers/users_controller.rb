@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def profile_liked_tweets
     @user = User.find(params[:id])
     @tweets = @user.liked_tweets
-    render :profile
     @in_profile = false
+    render :profile
   end
 end

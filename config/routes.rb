@@ -14,6 +14,9 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy', as: 'logout'
     post '/tweets/:id/likes', to: 'likes#create', as: 'create_like'
     delete '/tweets/:id/likes', to: 'likes#destroy', as: 'destroy_like'
+
+    get 'profile/:id', to: 'users#profile', as: 'profile'
+    get 'profile/:id/liked_tweets', to: 'users#liked_tweets', as: 'liked_tweets'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

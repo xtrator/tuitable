@@ -1,5 +1,5 @@
 class Api::UsersController < ApiController
-  skip_before_action :authorize, only: :create
+  skip_before_action :authorize_user, only: [:create, :profile, :liked_tweets]
 
   def create
     @user = User.new(user_params)
@@ -9,6 +9,16 @@ class Api::UsersController < ApiController
     else
       render json: @user.errors.messages
     end
+  end
+
+  def profile
+    user = User.find(params[:id])
+    render json: user, include: [:tweets]
+  end
+
+  def liked_tweets
+    user = User.find(params[:id])
+    render json: user, include: [:liked_tweets]
   end
 
   private
