@@ -21,6 +21,23 @@ class Api::UsersController < ApiController
     render json: user, include: [:liked_tweets]
   end
 
+  def update
+    user = User.find(params[:id])
+    authorize user
+    if user.update(user_params)
+      render json: user
+    else
+      render json: user.errors, status: :bad_request
+    end
+  end
+
+  def destroy
+    user = User.find(params[:id])
+    authorize user
+    user.destroy
+    head :no_content
+  end
+
   private
 
   def user_params

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :tweets, only: %i[index show create update destroy]
-    resources :users, only: %i[create]
+    resources :users, only: %i[create destroy update]
     post '/login', to: 'sessions#create', as: 'login'
     delete '/logout', to: 'sessions#destroy', as: 'logout'
     post '/tweets/:id/likes', to: 'likes#create', as: 'create_like'
