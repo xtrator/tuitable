@@ -24,8 +24,9 @@
         <%= link_to  image_tag("like"), root_path %> <%= tweet.likes_count %>
       </div>
       <div>
-        <%= link_to  image_tag("edit"), edit_tweet_path(tweet) %>
-        <%= link_to  image_tag("delete"), tweet_path(tweet), method: :delete, data: { confirm: "are you sure?" } %>
+        <%= link_to  image_tag("edit"), edit_tweet_path(tweet) if policy(tweet).edit? %>
+        <%= link_to  image_tag("delete"), tweet_path(tweet),
+                     method: :delete, data: { confirm: "are you sure?" } if policy(tweet).destroy? %>
       </div>
     </div>
   </div>
