@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'tweets#index'
   devise_for :users
   resources :tweets
-  post '/tweets/:id/likes', to: 'tweets#create', as: 'create_like'
-  delete '/tweets/:id/likes', to: 'tweets#create', as: 'destroy_like'
+  post '/tweets/:id/likes', to: 'likes#create', as: 'create_like'
+  delete '/tweets/:id/likes', to: 'likes#destroy', as: 'destroy_like'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

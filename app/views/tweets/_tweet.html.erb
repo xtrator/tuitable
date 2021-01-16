@@ -21,7 +21,11 @@
     <div class="tweet__links">
       <div>
         <%= link_to  image_tag("comment"), tweet_path(tweet) %> <%= tweet.replies_count %>
-        <%= link_to  image_tag("like"), root_path %> <%= tweet.likes_count %>
+        <% if current_user && current_user.liked_tweets.include?(tweet) %>
+          <%= link_to  image_tag("liked"), create_like_path(tweet), method: :delete %> <%= tweet.likes_count %>
+        <% else %>
+          <%= link_to  image_tag("like"), destroy_like_path(tweet), method: :post %> <%= tweet.likes_count %>
+        <% end %>
       </div>
       <div>
         <%= link_to  image_tag("edit"), edit_tweet_path(tweet) if policy(tweet).edit? %>
