@@ -4,6 +4,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    user == record
+    user&.admin? || user == record
   end
 end
