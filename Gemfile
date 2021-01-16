@@ -24,6 +24,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'faker'
 gem 'pundit'
+gem 'omniauth-github', '~>1.4.0'
+gem 'omniauth-google-oauth2', '~>0.8.1'
+gem 'dotenv-rails'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

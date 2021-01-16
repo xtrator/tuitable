@@ -6,5 +6,7 @@
     <p><%= button_to  "Logout", destroy_user_session_path, class: 'button button--ghost button--small', method: :delete %></p>
   <% else %>
     <p><%= button_to  "Login", new_user_session_path, class: 'button button--ghost button--small', method: :get %></p>
+    <%= link_to "Continue with Google", user_google_oauth2_omniauth_authorize_path, 
+                method: :get, class: "h--xsmall nav__link"%>
   <% end %>
 </div>
