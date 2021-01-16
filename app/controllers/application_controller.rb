@@ -13,6 +13,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    flash.alert = e.message
+    redirect_to root_path
+  end
+
   protected
 
   def update_allowed_parameters

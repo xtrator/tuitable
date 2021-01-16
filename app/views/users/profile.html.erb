@@ -1,7 +1,7 @@
 <h1 class="header h--large h--bold">Profile</h1>
   <div class="profile">
-    <% if current_user&.avatar.attached? %>
-      <%= image_tag  current_user.avatar, class: "profile__avatar" %>
+    <% if @user&.avatar.attached? %>
+      <%= image_tag  @user.avatar, class: "profile__avatar" %>
     <% else %>
       <%= image_tag "default_avatar", class: "profile__avatar" %>
     <% end %>
@@ -12,10 +12,10 @@
   <div class="profile_links">
     <% if @in_profile %>
       <%= link_to "Tweets", profile_path, class: "profile_link h--large h--bold h--primary"%>
-      <%= link_to "Likes", profile_likes_path, class: "profile_link h--large h--bold"%>
+      <%= link_to "Likes", profile_liked_tweets_path, class: "profile_link h--large h--bold"%>
     <% else %>
       <%= link_to "Tweets", profile_path, class: "profile_link h--large h--bold"%>
-      <%= link_to "Likes", profile_likes_path, class: "profile_link h--large h--bold h--primary"%>
+      <%= link_to "Likes", profile_liked_tweets_path, class: "profile_link h--large h--bold h--primary"%>
     <% end %>
   </div>
 <p> <%= render @tweets %></p>
