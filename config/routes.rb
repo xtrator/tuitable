@@ -10,7 +10,8 @@ Rails.application.routes.draw do
   namespace :api do
     resources :tweets, only: %i[index show create]
     resources :users, only: %i[create]
-    resources :sessions, only: %i[create destroy]
+    post '/login', to: 'sessions#create', as: 'login'
+    delete '/logout', to: 'sessions#destroy', as: 'logout'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

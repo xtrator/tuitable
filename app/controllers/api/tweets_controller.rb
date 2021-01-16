@@ -13,7 +13,7 @@ class Api::TweetsController < ApiController
   end
 
   def create
-    @tweet = Tweet.new(params)
+    @tweet = Tweet.new(tweet_params)
     @tweet.user = current_user
     if @tweet.save
       render json: @tweet

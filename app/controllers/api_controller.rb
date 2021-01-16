@@ -2,6 +2,7 @@ class ApiController < ActionController::API
   # This is neened because ActionControlle::API doesn't include the module by default
   # This module is required for using authenticate_with_http_token method
   include ActionController::HttpAuthentication::Token::ControllerMethods
+  include Pundit
 
   before_action :authorize
 
@@ -24,5 +25,13 @@ class ApiController < ActionController::API
     authenticate_with_http_token do |token, _options|
       User.find_by(token: token)
     end
+  end
+  
+  rescue_from ActiveRecord::RecordNotFound do |e|
+    render json: { message: e.message }, status: :not_found
+  end
+
+  rescue_from Pundit::NotAuthorizedError do |e|
+    respond_unauthorized(e.message)
   end
 end

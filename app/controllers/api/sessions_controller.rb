@@ -2,10 +2,10 @@ class Api::SessionsController < ApiController
 	skip_before_action :authorize, only: :create
 
   def create
-    user = User.find_by(email: params[:email])
-    if user&.authenticate(params[:password])
+    user = User.find_by(email: params[:user][:email])
+    if user&.valid_password?(params[:user][:password])
       user.regenerate_token
-      render json: { token: user.token }
+      render json: { token: user.token}
     else
       respond_unauthorized('Incorrect email or password')
     end
@@ -13,6 +13,6 @@ class Api::SessionsController < ApiController
 
   def destroy
     current_user.invalidate_token
-    head :ok
+    head :no_content
   end
 end
