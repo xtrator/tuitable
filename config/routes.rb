@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   get '/profile/:id', to: 'users#profile', as: 'profile'
   get '/profile/:id/liked_tweets', to: 'users#profile_liked_tweets', as: 'profile_liked_tweets'
   root 'tweets#index'
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'callbacks' }
   resources :tweets
   post '/tweets/:id/likes', to: 'likes#create', as: 'create_like'
   delete '/tweets/:id/likes', to: 'likes#destroy', as: 'destroy_like'
