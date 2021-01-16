@@ -7,6 +7,7 @@ class TweetsController < ApplicationController
   def show
     @tweet = Tweet.find(params[:id])
     @tweets = @tweet.replies.order(likes_count: :desc)
+    @is_show_page = true
   end
 
   def edit
@@ -19,7 +20,7 @@ class TweetsController < ApplicationController
     @tweet.user = current_user
     authorize @tweet
     if @tweet.save
-      redirect_to tweets_path
+      redirect_back(fallback_location: root_path)
     else
       redirect_to tweets_path, notice: @tweet.errors.full_messages.to_sentence
     end

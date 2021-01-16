@@ -9,13 +9,27 @@
     </a>
   </div>
   
-  <%= form_with model: @tweet, local: true do |f| %>
-    <div class="field">
-      <%= f.text_area :body, placeholder: "Remember to think before you write" %>
-    </div>
+  <% if @is_show_page %>
+    <%= form_with model: Tweet.new, local: true do |f| %>
+      <div class="field">
+        <%= f.text_area :body, placeholder: "Remember to think before you write" %>
+      </div>
 
-    <div class="action">
-      <%= f.submit "Tweet", class: "button" %>
-    </div>
+      <%= f.hidden_field :replied_to_id, value: @tweet.id %>
+
+      <div class="action">
+        <%= f.submit "Tweet", class: "button" %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= form_with model: @tweet, local: true do |f| %>
+      <div class="field">
+        <%= f.text_area :body, placeholder: "Remember to think before you write" %>
+      </div>
+
+      <div class="action">
+        <%= f.submit "Tweet", class: "button" %>
+      </div>
+    <% end %>
   <% end %>
 </div>

@@ -8,6 +8,8 @@
     <p class="h--large h--bold"> <%= @user.name %></p>
     <p class="h--regular h--gray"> @<%= @user.username %></p>
     <p class="h--regular h--gray"> Joined on <%= @user.created_at.strftime("%B %d, %Y") %></p>
+    <%= button_to  "Edit Profile", edit_user_registration_path(current_user), 
+                    method: :get, class: "button button--ghost" if current_user == @user %>
   </div>
   <div class="profile_links">
     <% if @in_profile %>
