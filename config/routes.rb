@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   delete '/tweets/:id/likes', to: 'likes#destroy', as: 'destroy_like'
 
   namespace :api do
-    resources :tweets, only: %i[index  show]
+    resources :tweets, only: %i[index show create]
     resources :users, only: %i[create]
+    resources :sessions, only: %i[create destroy]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

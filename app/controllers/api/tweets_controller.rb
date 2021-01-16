@@ -13,6 +13,18 @@ class Api::TweetsController < ApiController
   end
 
   def create
-    @tweet = Tweet.
+    @tweet = Tweet.new(params)
+    @tweet.user = current_user
+    if @tweet.save
+      render json: @tweet
+    else
+      render json: @tweet.errors.messages
+    end
+  end
+
+  private 
+
+  def tweet_params
+    params.require(:tweet).permit(:body)
   end
 end
