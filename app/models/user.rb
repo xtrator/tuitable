@@ -14,4 +14,10 @@ class User < ApplicationRecord
   validates :username, uniqueness: true
 
   enum role: { member: 0, admin: 1 }
+
+  has_secure_token
+
+  def invalidate_token
+    update(token: nil)
+  end
 end
